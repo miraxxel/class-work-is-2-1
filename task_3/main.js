@@ -1,56 +1,68 @@
-// объекты пишутся только в фигурных скобках
-/*let person = {
-    name: "Tom",
-    age:  18,
-    hobbies: ["Кушать", "Спать", "Просмотр кино"],
-    contacts: {
-        phone: [88005553255, 889055553255],
-        email: "tom@example.com",
-        social: "www.github.com"
+let college = [
+    {
+        name: "Harry", 
+        age:  18, 
+        group: "ИС-2-1",
+        studID: 321232,
+        typeLearning: "Очная",
+        task: ["Физ-ра", "МДК-02-02", "МДК-02-02", "МДК-04-01"],
+        cash: 0,
+        isStudent: true   // указываем, что атрибуты сверху принадлежат студенту
+    },
+    {
+        name: "Ron", 
+        age:  19, 
+        group: "ИС-2-2",
+        studID: 321233,
+        typeLearning: "Заочная",
+        task: ["ИЗО", "МДК-03-02", "ПРАВО", "МДК-04-01"],
+        cash: 0,
+        isStudent: true   
+    },
+    {
+        name: "Tom", 
+        age:  32, 
+        isKurator: true,
+        kuratorGroup: "ИС-2-2",
+        kafedra: "ПОВТ",
+        typeLearning: "Очная",
+        lesson: ["МДК-02-02", "МДК-02-02", "МДК-04-01", "МДК-03-03"],
+        isStudent: false 
+    },
+    {
+        name: "Bob", 
+        age:  32, 
+        isKurator: true,
+        kuratorGroup: "ИС-2-1",
+        kafedra: "ПОВТ",
+        typeLearning: "Очная",
+        lesson: ["МДК-02-02", "МДК-02-02", "МДК-04-01", "МДК-03-03"],
+        isStudent: false 
+    }
+];
+
+if (college[0]["isStudent"] === true) {
+    console.log(`Вы выбрали студента ${college[0]["name"]}`);
+    if ( college[0]["age"] >= 18 ) {
+        console.log(`Студент ${college[0]["name"]} совершеннолетний, ему ${college[0]["age"]}`);
+    } 
+    else {
+        console.log(`Студент ${college[0]["name"]} не совершеннолетний, ему ${college[0]["age"]}`);
+    } 
+
+    if ( college[0]["cash"] >= 4500 ) {
+        console.log(`Студент ${college[0]["name"]} получает повышенную степендию, ${college[0]["cash"]} руб.`);
+    } 
+    else if ( college[0]["cash"] <= 4400 && college[0]["cash"] > 0 ) {
+        console.log(`Студент ${college[0]["name"]} получает обычную степендию, ${college[0]["cash"]} руб.`);
+    } 
+    else {
+        console.log(`Студент ${college[0]["name"]} не получает степендию.`);
     }
 }
-
-console.log(person["name"], person["age"]) // обращение к атрибуту, сначала к объекту, затем в [""] имя атрибута
-// или
-console.log(`Имя - ${person["name"]}. Возраст - ${person["age"]}`); 
-console.log(person["hobbies"][2]) // переходим к глобальному объекту, а после выбираем конкретный элемент
-console.log(person["contacts"]["phone"][1]);*/
-
-
-// массив сам индексирует элементы
-// объект (более глобальный, чем массив, индекс задаем сами, пишем в {}) содержит атрибуты которые мы сами придумываем
-// массив мы исп. когда не знаем как индексировать наши значения (например, какие пары сегодня)
-// то к чему мы можем приписать общее определение, мы используем атрибуты 
-//(например, как выглядит студент, что у него на голове, что на руках, вверх, них и т.д)
-
-
-/*let college = [
-    {name: "Tom", age:  18, group: "ИС-2-1"},
-    {name: "Bob", age:  18, group: "ИС-2-2"},
-    {name: "Stan", age:  23, group: "ИС-2-1"},
-    {name: "Harry", age:  17, group: "ИС-2-2"},
-];
-
-college[0]["age"] = 24;
-console.log(college);*/
-
-//console.log(college[2]["name"]); // для атрибута, при выводемы указываем его имя
-// если атрибуты объектов одинаковые их можно хранить в массиве
-
-let college = [
-    {name: "Tom", age:  18, group: "ИС-2-1"},
-    {name: "Bob", age:  18, group: "ИС-2-2"},
-    {name: "Stan", age:  23, group: "ИС-2-1"},
-    {name: "Harry", age:  17, group: "ИС-2-2"},
-];
-
-let count = 2;
-
-let studentAge = college[count]["age"];
-let studentName = college[count]["name"];
-
-if (studentAge >= 18 ) {
-    console.log(`Студент ${studentName} совершеннолетрий, ему ${studentAge}`);
-} else if (studentAge < 18) {
-    console.log(`Студент ${studentName} не совершеннолетрий, ему ${studentAge}`);
+else if ( college[0]["isStudent"] === false ) {
+    console.log(`Вы выбрали преподователя ${college[0]["name"]}`);
+    if ( college[0]["isKurator"] ) {
+        console.log(`Преподователь ${college[0]["name"]} куратор группы ${college[0][kuratorGroup]}`);
+    }
 }
