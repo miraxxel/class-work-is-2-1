@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* * - обращение ко всем элементам, св-во padding сбрасывает внутри какого-то элемента отступы */
+/* margin сбрасывает внешние отступы */
+/* box-sizing: border-box; - адаптивность страницы к размеру экрана */
+/* во всех браузерах есть стили по умолчанию, которые нужно отключать */
+
+/* --color-white: - синтаксис переменной*/
+:root {
+    --color-white: #fff;
+    --color-black: #111;
+    --font-sans: sans-serif;
+}
+
+/* для работы с переменными (чтобы передать их), исп-ся var()*/
+/* переменные упрощают работу с большим количеством элементов (например, кнопок)*/
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-black); /* меняет фоновый цвет */
+    color: var(--color-white);
+    width: 100%; /*сайт будет занимать 100% от своего "родителя" - исходного окна браузера*/
+    
+    display: flex; /* позволяет перемещать элементы на сайте как нам удобоно*/
+    justify-content: center;
+}
+
+/*align-items: ; - перемещает элементы по вертикали
+работает только если был прописан display: flex;
+justify-content: center; - перемещает по горизонтали
+не рекомендуется писать в теге body*/
+
+.container {
+    padding-top: 70px; /*позволяет сбросить отступ сверху*/
+    /*лучше указывать ограничения ширины */
+    max-width: 540px;
+    width: 100%; /*обязательно прописывать ещё раз здесь, т.к. исп-ем display: flex;*/
+
+}
+
+.title {
+    text-transform: uppercase; /*работа с текстом*/
+    /* все размеры лучше указывать в px, кроме ширины и высоты, их в % */
+    font-size: 52px;
+    margin-bottom: 35px;
+    text-align: center; /*для того, чтобы текст встал по центру*/
+}
+
+.task-form {
+    display: flex;
+    gap: 10px; /*отступы междц дочерними элементами*/
+}
+
+.task-input {
+    width: 100%;
+    height: 35px;
+    background-color: transparent; /*сделать цвет прозрычным*/
+    outline: none; /*убираем голубой контур при нажатии на окно ввода*/
+    border: 2px solid var(--color-white); /*обычно указывается три параметра, ширина, тип, цвет линии*/
+    color: var(--color-white);
+    border-radius: 25px; /*для скругления границ блока ввода*/
+    padding-left: 25px; /*отступы введённого текста*/
+    padding-right: 25px;
+}
+
+.task-button {
+    background-color: var(--color-white);
+    border: none;
+    padding-inline: 12px; /*горизонтальные отступы*/
+    border-radius: 25px;
+    cursor: pointer; /*изменяет курсор при наведении на кнопку*/
+
+}
+
+/*через : указывается состояние кнопки*/
+.task-button:disabled {
+    cursor: default;
+    opacity: .5; /*кнопка будет иметь прозрачность 50% */
+}

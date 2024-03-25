@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">ToDo - приложение</h2>
+        <div class="task-form">
+            <input onchange="checkInput()" type="text" class="task-input" id="taskInput">
+            <button onclick="addTask()" class="task-button" id="taskBtn" disabled>Добавить</button>
+        </div>
+        <ul class="task-list" id="taskList"></ul>
+    </div>
+</body>
+</html>
+
+
+<!--тег ul позволяет создать маркированный список-->
+
+<!-- чтобы задать стиль, нужно обратиться либо по названию тега, 
+    либо по классу (классы могут повторяться, в отличии от id, 
+    который должен быть уникален).
+через id почти не обращаются, в основном через теги -->
+
+<!-- если есть тег ul должен быть и тег li -->
